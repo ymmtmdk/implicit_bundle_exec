@@ -1,13 +1,15 @@
 function __file_exists_in_tree
   set -l file $argv[1]
-  for _ in (seq 10)
-    if test -e $file
+  set -l path ./
+
+  while true
+    if test -e (string join "" $path $file)
       return 0
     end
-    if test (pwd) = "/"
+    if test (realpath $path) = "/"
       return 1
     end
-    set -l file (string join "" ../ $file)
+    set -l path (string join "" ../ $path)
   end
   return 1
 end
