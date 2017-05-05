@@ -25,6 +25,3 @@ function __wrap_bundle_exec_binaries --on-variable implicit_bundle_exec_binaries
     end
   end
 end
-
-set -g implicit_bundle_exec_binaries rails guard rackup spec
-
