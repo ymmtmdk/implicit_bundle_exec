@@ -1,4 +1,4 @@
-function __wrap_bundle_exec_binaries --on-variable implicit_bundle_exec_binaries
+function implicit_bundle_exec --on-variable implicit_bundle_exec_binaries
   for e in $implicit_bundle_exec_binaries
     function $e --inherit-variable e
       if file_exists_in_tree Gemfile
